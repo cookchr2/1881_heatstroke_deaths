@@ -1,4 +1,4 @@
-cd C:\Users\cookchr2\Downloads\1881_heatstroke_deaths-master\1881_heatstroke_deaths-master
+cd C:\Users\cookchr2\Documents\GitHub\1881_heatstroke_deaths
 
 *Read in data
 import delimited using heatstroke_death1881.csv, clear
@@ -15,6 +15,9 @@ gen resid_deaths = tot_deaths - deaths
 
 *Simple bivariate retression
 reg deaths humidity,r
+
+*w temp
+reg deaths humidity max_temp min_temp mean_temp, r
 
 *Testing using all variables on hand
 reg deaths max_temp min_temp mean_temp barometer humidity rainfall resid_deaths cloudy clear,r
